@@ -1,0 +1,13 @@
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local root = char:WaitForChild("HumanoidRootPart")
+
+local folder = workspace:WaitForChild("Stage")
+
+for i = 1, 20 do
+    local obj = folder:FindFirstChild(tostring(i))
+    if obj then
+        root.CFrame = obj.CFrame + Vector3.new(0, 3, 0) 
+        task.wait(0.2) 
+    end
+end
