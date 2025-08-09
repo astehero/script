@@ -1,0 +1,29 @@
+-- Главное меню с 2 кнопками
+
+-- Создаём интерфейс
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.CoreGui
+
+-- Функция для создания кнопки
+local function createButton(text, pos, onClick)
+    local button = Instance.new("TextButton")
+    button.Parent = ScreenGui
+    button.Size = UDim2.new(0, 200, 0, 50)
+    button.Position = pos
+    button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.TextSize = 18
+    button.Font = Enum.Font.SourceSansBold
+    button.Text = text
+    button.MouseButton1Click:Connect(onClick)
+end
+
+-- Первая кнопка — первый скрипт
+createButton("Скрипт 1", UDim2.new(0, 50, 0, 50), function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/astehero/script/refs/heads/main/idk"))()
+end)
+
+-- Вторая кнопка — второй скрипт
+createButton("Скрипт 2", UDim2.new(0, 50, 0, 120), function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/astehero/script/refs/heads/main/after%20100%25"))()
+end)
